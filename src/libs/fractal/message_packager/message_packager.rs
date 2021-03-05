@@ -51,7 +51,7 @@ impl MessagePackager{
         let mut coordinates = coordinates::Coordinates::default();
         coordinates.set_pos(fractal_x, fractal_y);
 
-        let [fractal_x0, fractal_x1, fractal_y0, fractal_y1] = coordinates.get_coords();
+        // let [fractal_x0, fractal_x1, fractal_y0, fractal_y1] = coordinates.get_coords();
         // assert!(fractal_x0>=FRACTAL_X0, "fractal_x0 ({}) cannot be lower than the minimum value ({})", fractal_x0, FRACTAL_X0);
         // assert!(fractal_x1<=FRACTAL_X1, "fractal_x1 ({}) cannot be higher than the maximum value ({})", fractal_x1, FRACTAL_X1);
         // assert!(fractal_y0>=FRACTAL_Y0, "fractal_y0 ({}) cannot be lower than the minimum value ({})", fractal_y0, FRACTAL_Y0);
@@ -75,6 +75,22 @@ impl MessagePackager{
     // change the zoom related to the given proportion. zoom == 1.0 => no change.
     pub fn zoom_in_out(&mut self, proportion: f64){
         self.coordinates.zoom_in_out(proportion);
+        self.update_pos();
+    }
+    pub fn move_left(&mut self, proportion:f64){
+        self.coordinates.move_left(proportion);
+        self.update_pos();
+    }
+    pub fn move_right(&mut self, proportion:f64){
+        self.coordinates.move_right(proportion);
+        self.update_pos();
+    }
+    pub fn move_down(&mut self, proportion:f64){
+        self.coordinates.move_down(proportion);
+        self.update_pos();
+    }
+    pub fn move_up(&mut self, proportion:f64){
+        self.coordinates.move_up(proportion);
         self.update_pos();
     }
 

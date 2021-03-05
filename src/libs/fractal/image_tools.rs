@@ -4,19 +4,19 @@ use std::path::PathBuf;
 use image:: {RgbaImage, Rgba};
 // use crate::global_consts::{SCREENHEIGHT, WIDTH_PER_THREAD};
 use crate::libs::fractal::message_packager::custom_messages::FractalIntensity;
-use crate::libs::fractal::fractal_state::color::convertvalue;
+// use crate::libs::fractal::fractal_state::color::convertvalue;
 // use crate::libs::globals::ITERATIONS;
 
 // use crate::libs::fractal::image_tools::imgcolor::{Color, ColorOrder};
 
-use crate::libs::window::fractal_window::create_window;
+// use crate::libs::window::fractal_window::FractalWindow;
 
 /// Handles image reading and printing.
 pub struct ImgTools{
-    height: u32,
-    width: u32,
+    // height: u32,
+    // width: u32,
     path: PathBuf,
-    img: image::RgbaImage,
+    pub img: image::RgbaImage,
 }
 
 impl ImgTools{
@@ -26,7 +26,7 @@ impl ImgTools{
     /// path of the file to save. Must have something like .png at the end for file format. (I should improve this part)
     /// colororder is a string that tells the priority of colors. Can be RGB RBG BRG BGR GRB or GBR.
     /// iterations is the max value that the intensity can have.
-    pub fn new(height: u32, width: u32, path: PathBuf, iterations: u32) -> Self{
+    pub fn new(height: u32, width: u32, path: PathBuf) -> Self{
         let mut img = RgbaImage::new(width,height);
         for y in 0..height{
             for x in 0..width{
@@ -37,8 +37,6 @@ impl ImgTools{
         // let newcolor = Color::new(colororder, iterations);
 
         ImgTools{
-            height,
-            width,
             path,
             img,
         }
@@ -64,7 +62,11 @@ impl ImgTools{
         self.img.save(&self.path).unwrap();
     }
 
-    pub fn create_window(&self){
-        create_window(self.img.clone());
-    }
+    // pub fn get_image(&self) -> image::RgbaImage{
+    //     self.img.clone()
+    // }
+
+    // pub fn create_window(&self){
+    //     create_window(self.img.clone());
+    // }
 }
