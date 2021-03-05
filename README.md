@@ -57,11 +57,11 @@ way ahead.
  
  - Copy this project with:
  
- 	git clone https://github.com/On0n0k1/crispy_octo_fractals.git
+	git clone https://github.com/On0n0k1/crispy_octo_fractals.git
  
  - Compile the project with:
  
- 	cargo build
+	cargo build
  	
 This takes a while to download and install all dependencies. There will be a lot of "dead code" warnings as well.
 
