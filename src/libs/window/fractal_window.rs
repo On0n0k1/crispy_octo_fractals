@@ -7,7 +7,7 @@ use piston_window::*;
 
 
 
-use kik_sync_service::channel::DeliveryService;
+use kik_sync_service::channel::{DeliveryService, ChannelConfig};
 
 use crate::libs::globals::{SCREEN_WIDTH, SCREEN_HEIGHT, ITERATIONS};
 use crate::libs::fractal::message_packager::message_packager::MessagePackager;
@@ -24,9 +24,14 @@ pub struct FractalWindow{
 
 impl Default for FractalWindow{
     fn default() -> Self{
-        let delivery_service: DeliveryService<FractalIntensity, Position, FractalMessage> = DeliveryService::default();
+        let mut channel_config = ChannelConfig::default();
+        channel_config.set_worker_number(32);
+        // let delivery_service: DeliveryService<FractalIntensity, Position, FractalMessage> = DeliveryService::default();
+        let delivery_service: DeliveryService<FractalIntensity, Position, FractalMessage> = DeliveryService::new(channel_config);
         let message_packager = MessagePackager::default();
         let mut path_image = std::env::current_dir().unwrap();
+        path_image.push("src/");
+        path_image.push("saved_images/");
         path_image.push("test.png");
         let image_tools = ImgTools::new(SCREEN_HEIGHT as u32, SCREEN_WIDTH as u32, path_image);
 
@@ -55,14 +60,17 @@ impl FractalWindow{
             &TextureSettings::new(),
         ).unwrap();
 
-        self.update_image();
-
+        // self.update_image();
+        let mut new_image: bool = true;
 
         while let Some(e) = window.next() {
 
             if let Some(button) = e.release_args(){
+            // match e.release_args(){
+            //     Some(button) => {
                 match button {
                     Button::Keyboard(key) =>{
+                        new_image = true;
                         match key{
                             Key::W => self.release_w(),
                             Key::A => self.release_a(),
@@ -70,6 +78,8 @@ impl FractalWindow{
                             Key::D => self.release_d(),
                             Key::Q => self.release_q(),
                             Key::E => self.release_e(),
+                            Key::Return => self.release_enter(),
+                            Key::Return2 => self.release_enter(),
                             Key::Escape => {
                                 println!("Pressed escape. Closing...");
                                 window.set_should_close(true);
@@ -80,7 +90,11 @@ impl FractalWindow{
                     _ =>{},
                 }
             }
-
+                // None => break,
+            if new_image == false{
+                continue
+            }
+            
             window.draw_2d(&e, |c, g, _|{
 
 
@@ -90,9 +104,10 @@ impl FractalWindow{
                 // + - increment decrement rate of zoom
                 // esc quit
                 // enter save image
-
                 
-
+                // self.update_image();
+                self.update_image();
+                new_image = false;
                 println!("Clearing screen");
                 clear([0.0, 0.0, 0.0, 1.0], g);
                 texture = Texture::from_image(
@@ -121,37 +136,41 @@ impl FractalWindow{
         // Move 20% of the screen up
         println!("Pressed up");
         self.message_packager.move_up(self.move_rate);
-        self.update_image();
+        // self.update_image();
     }
 
     fn release_s(&mut self){
         println!("Pressed down");
         self.message_packager.move_down(self.move_rate);
-        self.update_image();
+        // self.update_image();
     }
 
     fn release_a(&mut self){
         println!("Pressed left");
         self.message_packager.move_left(self.move_rate);
-        self.update_image();
+        // self.update_image();
     }
 
     fn release_d(&mut self){
         println!("Pressed right");
         self.message_packager.move_right(self.move_rate);
-        self.update_image();
+        // self.update_image();
     }
 
     fn release_q(&mut self){
         println!("Pressed zoom_out Q");
         self.message_packager.zoom_in_out(0.5);
-        self.update_image();
+        // self.update_image();
     }
 
     fn release_e(&mut self){
         println!("Pressed zoom_in E");
         self.message_packager.zoom_in_out(1.5);
-        self.update_image();
+        // self.update_image();
     }
 
+    fn release_enter(&mut self){
+        println!("Pressed Enter. Saving...");
+        self.image_tools.save_image();
+    }
 }

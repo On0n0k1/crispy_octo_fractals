@@ -2,14 +2,16 @@
 
 // message consts
 pub const MESSAGE_SIZE: usize = 2048;
-// pub const ITERATIONS: u32 = 1024;
-pub const ITERATIONS: u32 = 2048;
+pub const ITERATIONS: u32 = 1024;
+// pub const ITERATIONS: u32 = 2048;
 // pub const COLOR_ORDER: ColorOrder = ColorOrder::RGB;
 
 // screen consts
-pub const SCREEN_WIDTH: usize = 1024;
+// pub const SCREEN_WIDTH: usize = 1024;
+pub const SCREEN_WIDTH: usize = 800;
 // pub const SCREEN_WIDTH: usize = 3840;
-pub const SCREEN_HEIGHT: usize = 768;
+// pub const SCREEN_HEIGHT: usize = 768;
+pub const SCREEN_HEIGHT: usize = 600;
 
 pub const ASPECT_RATIO: f64 = SCREEN_WIDTH as f64 / SCREEN_HEIGHT as f64;
 

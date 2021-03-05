@@ -59,6 +59,7 @@ impl ImgTools{
     // }
 
     pub fn save_image(&self){
+        println!("Saving at {:?}", self.path);
         self.img.save(&self.path).unwrap();
     }
 
