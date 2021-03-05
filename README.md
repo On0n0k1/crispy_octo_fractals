@@ -51,21 +51,21 @@ way ahead.
 
 ## How to install and use it:
 
- - Install rust: It's pretty fast, usually a few command lines. [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
+Install rust: It's pretty fast, usually a few command lines. [https://www.rust-lang.org/tools/install](https://www.rust-lang.org/tools/install)
  
- - cd into an empty folder to copy this project.
+**cd** into an empty folder to copy this project.
  
- - Copy this project with:
+Copy this project with:
  
 	git clone https://github.com/On0n0k1/crispy_octo_fractals.git
  
- - Compile the project with:
+Compile the project with:
  
 	cargo build
  	
 This takes a while to download and install all dependencies. There will be a lot of "dead code" warnings as well.
 
- - Run the project with:
+Run the project with:
  
 	cargo run
 	
