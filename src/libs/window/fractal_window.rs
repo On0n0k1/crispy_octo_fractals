@@ -9,7 +9,7 @@ use piston_window::*;
 
 use kik_sync_service::channel::{DeliveryService, ChannelConfig};
 
-use crate::libs::globals::{SCREEN_WIDTH, SCREEN_HEIGHT, ITERATIONS};
+use crate::libs::globals::{SCREEN_WIDTH, SCREEN_HEIGHT};
 use crate::libs::fractal::message_packager::message_packager::MessagePackager;
 use crate::libs::fractal::message_packager::custom_messages::{FractalMessage, FractalIntensity, Position};
 use crate::libs::fractal::image_tools::ImgTools;

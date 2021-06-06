@@ -2,12 +2,12 @@ extern crate kik_sync_service;
 
 mod libs;
 
-use kik_sync_service::channel::DeliveryService;
+// use kik_sync_service::channel::DeliveryService;
 
-use libs::globals::{SCREEN_WIDTH, SCREEN_HEIGHT, ITERATIONS};
-use libs::fractal::message_packager::message_packager::MessagePackager;
-use libs::fractal::message_packager::custom_messages::{FractalMessage, FractalIntensity, Position};
-use libs::fractal::image_tools::ImgTools;
+// use libs::globals::{SCREEN_WIDTH, SCREEN_HEIGHT, ITERATIONS};
+// // use libs::fractal::message_packager::message_packager::MessagePackager;
+// use libs::fractal::message_packager::custom_messages::{FractalMessage, FractalIntensity, Position};
+// use libs::fractal::image_tools::ImgTools;
 
 use libs::window::fractal_window::FractalWindow;
 
