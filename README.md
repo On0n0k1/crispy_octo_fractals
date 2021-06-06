@@ -2,7 +2,7 @@
 Library for generating and zooming in to customized fractals.
 
 This is a very very VERY early state. It can be run to generate a 800 x 600 screen that shows a 
-mandelbrot set. Wait for the screen to render each time before pressing the next keyboard key.
+mandelbroth set. Wait for the screen to render each time before pressing the next keyboard key.
 Here are the controls:
 
  - W A S D: Move commands to the window.
@@ -44,8 +44,8 @@ Each pixel in the screen is a coordinate, the algorithm iterates incrementing a
 value until it reaches a certain valid condition (or hit the max number of iterations).
 
 The white part of the fractal are the regions where the max number of iterations has 
-been reached. The dar regions are the regions where the lowest number of iterations 
-were required. Every color in between is just to look pretty.
+been reached. The dark regions are the pixels where the lowest number of iterations 
+were needed. Every color in between is just to look pretty.
 
 Nice fractals can be really fun to zoom into, but they also demand a lot of processing 
 power to generate. So multi-threading is the only option. I'm using my library 
@@ -69,7 +69,7 @@ Compile the project with:
  
 	cargo build
  	
-This takes a while to download and install all dependencies. There will be a lot of "dead code" warnings as well.
+This takes a while to download and install all dependencies. There will be a few "dead code" warnings as well.
 
 Run the project with:
  
