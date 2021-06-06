@@ -18,6 +18,12 @@ If you take away the focus from the screen by alt-tabbing or clicking out of the
 will stop processing the events until focus is returned to the screen (I think, 
 I finished this build this morning).
 
+Here's an example of the project running:
+
+![crispy_octo_fractals](https://github.com/On0n0k1/crispy_octo_fractals/blob/main/static/crispy_octo_fractals.png)
+
+
+
 ***So if it freezes, press ctrl-c to force the window to close.***
 
 Here are the upcoming updates:
